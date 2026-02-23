@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zero Two Night</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+
+        /* Fondo noche */
+        background: radial-gradient(circle at top, #0b1d3a, #000814 70%);
+        position: relative;
+    }
+
+    /* Luna */
+    body::before {
+        content: "";
+        position: absolute;
+        top: 60px;
+        right: 80px;
+        width: 120px;
+        height: 120px;
+        background: radial-gradient(circle, #fff 60%, #ddd 100%);
+        border-radius: 50%;
+        box-shadow: 0 0 40px #ffffffaa;
+    }
+
+    .container {
+        text-align: center;
+        z-index: 10;
+    }
+
+    .dance-wrapper {
+        width: 320px;
+        background: white;
+        padding: 10px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .dance-wrapper img {
+        width: 100%;
+        border-radius: 15px;
+        display: block;
+    }
+
+    h1 {
+        color: #ffffff;
+        margin-top: 20px;
+        letter-spacing: 3px;
+        text-shadow: 0 0 10px #ffffffaa;
+    }
+
+    /* Estrellas fugaces */
+    .star {
+        position: absolute;
+        width: 2px;
+        height: 80px;
+        background: linear-gradient(-45deg, white, transparent);
+        opacity: 0.8;
+        transform: rotate(45deg);
+        animation: shooting 2s linear forwards;
+    }
+
+    @keyframes shooting {
+        0% {
+            transform: translate(0, 0) rotate(45deg);
+            opacity: 1;
+        }
+        100% {
+            transform: translate(-600px, 600px) rotate(45deg);
+            opacity: 0;
+        }
+    }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="dance-wrapper">
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExam51ZGsydDY1cmMzMWN2ZWF2YjVrZ2tqdW53YTE3cmI4czRycXJvMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/b6IgVgIedd5vBe3rVV/giphy.gif" alt="Zero Two Dancing">
+    </div>
+    <h1>ZERO TWO NIGHT</h1>
+</div>
+
+<script>
+function createStar() {
+    const star = document.createElement("div");
+    star.classList.add("star");
+
+    star.style.top = Math.random() * 50 + "vh";
+    star.style.left = Math.random() * 100 + "vw";
+
+    document.body.appendChild(star);
+
+    setTimeout(() => {
+        star.remove();
+    }, 2000);
+}
+
+setInterval(createStar, 800);
+</script>
+
+</body>
+</html>
